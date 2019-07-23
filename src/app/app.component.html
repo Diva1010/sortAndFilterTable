@@ -1,0 +1,24 @@
+<div class='dataTable'>
+    <div class='searchDiv'>
+         <h5>Search Name Or Country Severity: <span><input type="text" [(ngModel)]="filterText" /></span>
+         </h5> 
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" sort [sortKey] ="'name'" [data]="screeningData">Name  <i class="fas fa-sort"></i></th>
+            <th scope="col">Country Check Severity</th>
+            <th scope="col" sort [sortKey] ="'created'" [data]="screeningData">Created On <i class="fas fa-sort"></i></th>
+            <th scope="col" sort [sortKey] ="'modified'" [data]="screeningData">Modified On   <i class="fas fa-sort"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of screeningData  | filter: filterText">
+            <td>{{data.name}}</td>
+            <td>{{data.countryCheckSeverity}}</td>
+            <td>{{data.created}}</td>
+            <td>{{data.modified}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
